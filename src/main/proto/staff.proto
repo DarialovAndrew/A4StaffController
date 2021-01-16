@@ -1,0 +1,37 @@
+syntax = "proto3";
+package com.example.demo.service.model;
+option java_multiple_files = true;
+
+service staffService{
+  rpc addCleaner(addCleanerRequest) returns(addCleanerResponse);
+  rpc deleteCleaner(deleteCleanerRequest) returns(deleteCleanerResponse);
+  rpc getAllCleaners(getAllCleanersRequest) returns(getAllCleanersResponse);
+}
+message ProtoCleaner{
+  string name=1;
+  int32 salary=2;
+}
+
+message addCleanerRequest{
+  ProtoCleaner cleaner=1;
+}
+message addCleanerResponse{
+
+}
+message deleteCleanerRequest{
+ string id=1;
+}
+message deleteCleanerResponse{
+
+}
+message getAllCleanersRequest{
+
+}
+message getCleanerResponse{
+  string id=1;
+  string name=2;
+  int32 salary=3;
+}
+message getAllCleanersResponse{
+  repeated getCleanerResponse cleaner=1;
+}
